@@ -2,4 +2,13 @@
 
 Bienvenue sur mon pseudo site/blog du tiers monde hébergé sur un truc totalement *pas fait* pour ça.
 
-Cette page n'est qu'un index vers mes autres sous-blogs: laTECH, Entre Parenthèses et Tartitrucs (Clairement le 3e je viens de l'inventer au moment d'écrire cette page, je ne vois pas trop ce que je vais bien pouvoir y mettre mais bon ¯\\_(ツ)_/¯ )
+Cette page n'est qu'un index vers mes autres sous-parties: laTECH, Entre Parenthèses et Tartitrucs.
+
+* laTech
+    * Ma partie dédiée à la technologie. Donc mes tutos, mes points de vue, toussa toussa, ça ira ici.
+* Entre Parenthèses
+    * C'est la section dédiée à mon podcast du même nom. Je pense que je vais m'en servir pour y archiver les notes des épisodes, c'est pas encore décidé.
+* Tartitrucs
+    * Pour tout ce qui ne passe pas dans un thread Twitter, ou qui devient trop long et chiant pour passer dans ce format.
+
+
