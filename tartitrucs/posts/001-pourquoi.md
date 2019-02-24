@@ -1,6 +1,6 @@
 # Pourquoi je fais ça ?
 
-###### En fait, c'est plutot simple à expliquer.
+###### En fait, c'est plutot simple à expliquer ¯\\_(ツ)_/¯
 
 Twitter c'est bien, mais dès que tu veux commencer à faire des trucs un peu long... Bah ça devient limite galère car tu dois découper chaque truc pour que ça passe dans la limite des 280 caras et tout... bref.
 
