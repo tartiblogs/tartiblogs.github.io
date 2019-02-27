@@ -46,12 +46,13 @@ Maintenant que tout est prêt, on peut procéder à des tests.
     * La console devrait s'allumer
 
 
-> Note : Si la console ne se réveille pas, pensez à activer "Autoriser l'activation de la PS4 depuis le réseau".
+> Si la console ne se réveille pas, pensez à activer "Autoriser l'activation de la PS4 depuis le réseau".
 >   * Je ne sais pas si ça aura un impact mais on ne sait jamais ¯\\_(ツ)_/¯ 
-> Renote : Je ne vais pas faire de sav au cas par cas, experimentez par vous-même. Sauf vraiment une "mauvaise manip" vraiment grossière (Vu comment les fonctions critiques sont balisées), il ne peut pas vous arriver grand chose de mal.
->   * Et au pire, il y a toujours moyen de remettre tous les paramètres dans leur état par défaut sans toucher aux données.
 
-> Dans tous les cas, je décline toute responsabilité en cas de perte de données ou endommagement du matériel... et de guerre Indo-Pakistanaise ~
+> Je ne vais pas faire de sav au cas par cas, experimentez par vous-même.
+>   * Sauf vraiment une "mauvaise manip" vraiment grossière (Vu comment les fonctions critiques sont balisées), il ne peut pas vous arriver grand chose de mal.
+>   * Et au pire, il y a toujours moyen de remettre tous les paramètres dans leur état par défaut sans toucher aux données.
+>   * Dans tous les cas, je décline toute responsabilité en cas de perte de données ou endommagement du matériel... ou de guerre Indo-Pakistanaise ~
 
 
 ### 2. Homebridge all the things
@@ -60,21 +61,28 @@ Homebridge est un pont logiciel qui permet de faire le lien entre HomeKit (La pl
 
 Pour la partie d'intallation de Homebridge, je vous redirige vers le tutoriel du projet --> [Le tuto](https://github.com/nfarina/homebridge/wiki/Running-HomeBridge-on-a-Raspberry-Pi)
 
-> Notes :
-> * En cas de besoin d'aide pour le fichier config.json, [un fichier modèle est dispo ici](https://github.com/nfarina/homebridge/blob/master/config-sample.json). Pensez à retirer l'accessoire et la plateforme qui sont mis à titre d'exemple justement. Si vous les laissez alors que les plugins associés ne sont pas installés, sinon vous risquez de rencontrer une erreur.
-> * Pensez à scanner le QR code envoyé par Homebridge avec l'app Camera ou l'app Maison, c'est plus pratique pour la suite
+>   * En cas de besoin d'aide pour le fichier config.json, [un fichier modèle est dispo ici](https://github.com/nfarina/homebridge/blob/master/config-sample.json). Pensez à retirer l'accessoire et la plateforme qui sont mis à titre d'exemple justement. Si vous les laissez alors que les plugins associés ne sont pas installés, sinon vous risquez de rencontrer une erreur.
+>   * Pensez à scanner le QR code envoyé par Homebridge avec l'app Camera ou l'app Maison, c'est plus pratique pour la suite
 
 Je vous conseille aussi d'installer le paquet [homebridge-config-ui-x](https://www.npmjs.com/package/homebridge-config-ui-x) pour vous simplifier la vie quand vous aurez besoin de retravailler le fichier de configuration de homebridge (Gestion du versionnage, de l'installation et mises à jour des plugins nottamment)
 
-> Note : Localhost est l'adresse IP locale de la machine, donc si vous installez config-ui-x sur une machine distante, pensez à remplacer localhost par l'ip de la machine sur le réseau quand vous voulez accéder à l'interface.
+> Localhost est l'adresse IP locale de la machine, donc si vous installez config-ui-x sur une machine distante, pensez à remplacer localhost par l'ip de la machine sur le réseau quand vous voulez accéder à l'interface.
 
 Pour les besoins de ce tutoriel, il va falloir installer le plugin cmdSwitch. Il permet de créer un interrupteur exploitable par HomeKit qui fait ce qu'on lui demande quand il change d'état.
 
-Exemples :
-> Quand le bouton passe à ON, alors exécuter la commande A
-> Quand le bouton passe à OFF, alors exécuter la commande B
+Exemples de fonctionnement :
+* Quand le bouton passe à ON, alors exécuter la commande A.
+* Quand le bouton passe à OFF, alors exécuter la commande B.
 
-Il va par contre falloir l'installer à la mano ( ```bash npm install -g homebridge-cmdswitch```), config-ui-x n'a pas celui-ci en catalogue. Enfin, il a la version 2... qui est une aberration à mes yeux... et qui semble être un enfer à configurer... donc voilà. 
+Il va par contre falloir l'installer à la mano (```bash npm install -g homebridge-cmdswitch```), config-ui-x n'a pas celui-ci en catalogue.
+
+Enfin, il a la version 2...
+
+qui est une aberration à mes yeux...
+
+et qui semble être un enfer à configurer... 
+
+donc voilà.
 
 
 **Breeeeeeef**, il va falloir adapter la configuration de homebridge pour qu'il prenne en charge cmdSwitch. Si vous n'avez pas fait les fous depuis le début du tuto, vous devriez avoir une catégorie "Accessoires" qui resemble à ceci :
@@ -91,16 +99,17 @@ Il va par contre falloir l'installer à la mano ( ```bash npm install -g homebri
     }
 ]
 ```
-> Note : Si vous avez plusieurs PS4 sur le même réseau, state_cmd ne fonctionnera pas correctement. J'ai deux solutions à vous proposer : 
+> Si vous avez plusieurs PS4 sur le même réseau, state_cmd ne fonctionnera pas correctement. J'ai deux solutions à vous proposer : 
 > * Si vous avez la flemme mettez  ```bash false``` à la place de ```bash ps4-waker search | grep -i '200 Ok'```.
 > * Si vous êtes déter, je vous invite à bosser sur un script Bash qui effectue un ET logique sur ```bash grep -i '200 Ok'``` et ```bash grep -i 'ADDR'```
-> Note 2 : Si vous voulez être directement connecté votre compte utilisateur PS lors de l'allumage, retirez simplement` ```bash --skip-login```.
+
+> Si vous voulez être directement connecté votre compte utilisateur PS lors de l'allumage, retirez simplement` ```bash --skip-login```.
 
 
 ### 3. Conclusion time
 
 
-**Normalement**, si vous avez bien tout suivi (et si vous avez eu de la chance car la technologie est toujours imprévisible mdr), vous pouvez maintenant allumer et éteindre votre console depuis Siri, l'app Maison ou via des automatisations (Genre à 9h, allumer la console)
+**Normalement**, si vous avez bien tout suivi (et si vous avez eu de la chance car la technologie est toujours imprévisible mdr), vous pouvez maintenant allumer et éteindre votre console depuis Siri, l'app Maison ou via des automatisations (Genre à 9h, allumer la console).
 
 Si vous avez des questions, des suggestions ou des idées à me faire remonter, je vous invite à m'envoyer un petit tweet à [@latech_tarti](http://twitter.com/latech_tarti) ou [@tartiflemme](http://twitter.com/tartiflemme).
 
