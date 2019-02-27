@@ -85,7 +85,8 @@ et qui semble être un enfer à configurer...
 donc voilà.
 
 
-**Breeeeeeef**, il va falloir adapter la configuration de homebridge pour qu'il prenne en charge cmdSwitch. Si vous n'avez pas fait les fous depuis le début du tuto, vous devriez avoir une catégorie "Accessoires" qui resemble à ceci :
+**Breeeeeeef**, il va falloir adapter la configuration de homebridge pour qu'il prenne en charge cmdSwitch.
+Si vous n'avez pas fait les fous depuis le début du tuto, votre catégorie "Accessoires" doit ressembler à ceci après configuration :
 
 
 ```json
