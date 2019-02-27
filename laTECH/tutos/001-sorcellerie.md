@@ -29,7 +29,7 @@ Tout le fonctionnement est indiqué sur la page npm du paquet, mais voici les in
 1. Installer le paquet sur votre rpi/serveur :  ```bash npm install ps4-waker -g ```
 2. Installer l'app PS4 Second Screen sur votre smartphone ([iOS](https://itunes.apple.com/fr/app/ps4-second-screen/id1201372796), [Android](https://play.google.com/store/apps/details?id=com.playstation.mobile2ndscreen))
 3. Lancer ps4-waker sans arguements
-* Note : Utiliser sudo si un erreur se rapprochant de "Impossible de lancer la PS4 virtuelle" est retournée
+* Utilisez sudo si une erreur se rapprochant de "Impossible de lancer la PS4 virtuelle" est retournée
 4. Ouvrir l'app Second Screen et sélectionner PS4-WAKER (Et pas votre PS4 si elle apparaît).
 5. Le paquet lancé sur le rpi va demander un code. Il faut alors allumer la console, aller dans les réglages et accéder à "Paramètres de connexion à PlayStataion App", puis sélectionner "Ajouter un périphérique". Le code affiché est celui à entrer dans le terminal.
 6. La PS4 devrait s'emballer et indiquer que PS4-WAKERMACHINCHOSE a été ajouté.
