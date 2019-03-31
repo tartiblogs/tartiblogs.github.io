@@ -22,11 +22,11 @@ De base la PS4 n'est pas compatible HomeKit (Pour des raisons évidentes -et com
 
 Comme vous le savez peut-être, il existe une app nommée Second Screen, par Sony, qui permet d'allumer et d'éteindre sa PS4.
 
-En fait on ne va pas se servir de cette app, mais du paquet [**ps4-waker**](https://www.npmjs.com/package/ps4-waker) qui imite son fonctionnement. 
+En fait on ne va pas se servir de cette app, mais du paquet [**ps4-waker**](https://www.npmjs.com/package/ps4-waker) qui imite son fonctionnement.
 
 Tout le fonctionnement est indiqué sur la page npm du paquet, mais voici les instructions à suivre pour ceux qui voudraient s'économiser des neurones 🙄 :
 
-1. Installer le paquet sur votre rpi/serveur :  ```bash npm install ps4-waker -g ```
+1. Installer le paquet sur votre rpi/serveur :  ``` npm install ps4-waker -g ```
 2. Installer l'app PS4 Second Screen sur votre smartphone ([iOS](https://itunes.apple.com/fr/app/ps4-second-screen/id1201372796), [Android](https://play.google.com/store/apps/details?id=com.playstation.mobile2ndscreen))
 3. Lancer ps4-waker sans arguements
 * Utilisez sudo si une erreur se rapprochant de "Impossible de lancer la PS4 virtuelle" est retournée
@@ -34,20 +34,20 @@ Tout le fonctionnement est indiqué sur la page npm du paquet, mais voici les in
 5. Le paquet lancé sur le rpi va demander un code. Il faut alors allumer la console, aller dans les réglages et accéder à "Paramètres de connexion à PlayStataion App", puis sélectionner "Ajouter un périphérique". Le code affiché est celui à entrer dans le terminal.
 6. La PS4 devrait s'emballer et indiquer que PS4-WAKERMACHINCHOSE a été ajouté.
 
-* Maintenant, exécutez ```bash ps4-waker search``` 
+* Maintenant, exécutez ``` ps4-waker search```
 * Et notez le semblant d'adresse IP (**192.168.1.xxx** dans la plupart des cas) que vous obtiendrez dans le résultat. Dans la suite du tutoriel, je vais employer ADDR pour symboliser cette IP.
 
 
 Maintenant que tout est prêt, on peut procéder à des tests.
 
-1.  Entrez ```bash ps4-waker -d ADDR standby```
+1.  Entrez ``` ps4-waker -d ADDR standby```
     * La console devrait d'éteindre
-2. Entrez ```bash ps4-waker -d ADDR```
+2. Entrez ``` ps4-waker -d ADDR```
     * La console devrait s'allumer
 
 
 > Si la console ne se réveille pas, pensez à activer "Autoriser l'activation de la PS4 depuis le réseau".
->   * Je ne sais pas si ça aura un impact mais on ne sait jamais ¯\\_(ツ)_/¯ 
+>   * Je ne sais pas si ça aura un impact mais on ne sait jamais ¯\\_(ツ)_/¯
 
 > Je ne vais pas faire de sav au cas par cas, experimentez par vous-même.
 >   * Sauf vraiment une "mauvaise manip" vraiment grossière (Vu comment les fonctions critiques sont balisées), il ne peut pas vous arriver grand chose de mal.
@@ -74,13 +74,13 @@ Exemples de fonctionnement :
 * Quand le bouton passe à ON, alors exécuter la commande A.
 * Quand le bouton passe à OFF, alors exécuter la commande B.
 
-Il va par contre falloir l'installer à la mano (```bash npm install -g homebridge-cmdswitch```), config-ui-x n'a pas celui-ci en catalogue.
+Il va par contre falloir l'installer à la mano (``` npm install -g homebridge-cmdswitch```), config-ui-x n'a pas celui-ci en catalogue.
 
 Enfin, il a la version 2...
 
 qui est une aberration à mes yeux...
 
-et qui semble être un enfer à configurer... 
+et qui semble être un enfer à configurer...
 
 donc voilà.
 
@@ -100,11 +100,9 @@ Si vous n'avez pas fait les fous depuis le début du tuto, votre catégorie "Acc
     }
 ]
 ```
-> Si vous avez plusieurs PS4 sur le même réseau, state_cmd ne fonctionnera pas correctement. J'ai deux solutions à vous proposer : 
-> * Si vous avez la flemme mettez  ```bash false``` à la place de ```bash ps4-waker search | grep -i '200 Ok'```.
-> * Si vous êtes déter, je vous invite à bosser sur un script Bash qui effectue un ET logique sur ```bash grep -i '200 Ok'``` et ```bash grep -i 'ADDR'```
+> Si vous avez plusieurs PS4 sur le même réseau, state_cmd ne fonctionnera pas correctement. Il va falloir que vous mettiez la main dans le cambouis et fassiez de la magie à l'aide de grep, vous allez devoir vérifier que c'est bien votre PS qui est allumée (Ça implique de chercher quelque chose qui contient plusieurs lignes. Je n'ai pas le temps au moment de la modification de cette page de vous expliquer toute la procédure donc bonne chance mdr)
 
-> Si vous voulez être directement connecté votre compte utilisateur PS lors de l'allumage, retirez simplement` ```bash --skip-login```.
+> Si vous voulez être directement connecté votre compte utilisateur PS lors de l'allumage, retirez simplement` ``` --skip-login```.
 
 
 ### 3. Conclusion time
